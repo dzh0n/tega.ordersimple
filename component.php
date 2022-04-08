@@ -89,6 +89,7 @@ if (isset($selectedDelivery)) {
 
 $paymentCollection = $order->getPaymentCollection();
 $payment = $paymentCollection->createItem();
+$payment->setField('SUM', $order->getPrice());
 $paySystemList = \Bitrix\Sale\PaySystem\Manager::getListWithRestrictions(
     $payment,
     \Bitrix\Sale\Services\Base\RestrictionManager::MODE_CLIENT
